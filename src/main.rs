@@ -4,6 +4,7 @@ use std::process::{Command, Stdio};
 use std::thread;
 
 fn threads() {
+    let url = "https://github.com/ELPanaJose"; // Here you put the url
     let samples = vec![
         "https://github.com/ELPanaJose/",
         "https://boards.4chan.org/s4s/",
@@ -21,7 +22,7 @@ fn threads() {
         children.push(thread::spawn(move || {
             println!("this is thread number {}", i);
             let ou = Command::new("curl")
-                .arg("https://www.youtube.com") // the url
+                .arg(url)
                 .stdout(Stdio::piped())
                 .output()
                 .expect("Failed to execute command");
