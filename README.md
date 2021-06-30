@@ -2,9 +2,7 @@
 
 <h1>if you want to run it</h1>
 
-you need to have installed curl
-
-by default scrap youtube, but you can change it, also change the number of threads
+you need to have installed curl and rust
 
 and run:
 
