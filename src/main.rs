@@ -1,8 +1,9 @@
+use colored::Colorize;
 use regex::Regex;
 use std::process::{Command, Stdio};
 use std::thread;
 
-const URL: &str = "https://paijose.tk"; // Here you put the url
+const URL: &str = "https://google.com"; // Here you put the url
 
 fn threads() {
     const NTHREADS: u32 = 1; // number of threads
@@ -20,10 +21,10 @@ fn threads() {
             let output = String::from_utf8(ou.stdout).unwrap();
             let formated = re.find_iter(&output).collect::<Vec<_>>();
             if formated.is_empty() {
-                println!("No matches from: {}", URL);
+                println!("No matches from: {}", URL.red());
             } else {
                 for i in formated {
-                    println!("{}", i.as_str())
+                    println!("{}", i.as_str().green())
                 }
             }
         }));
@@ -35,6 +36,6 @@ fn threads() {
 }
 
 fn main() {
-    println!("scraping: {}", URL);
+    println!("scraping: {}", URL.blue());
     threads();
 }
